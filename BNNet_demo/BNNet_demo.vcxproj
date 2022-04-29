@@ -151,8 +151,12 @@
     <ClCompile Include="tools.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\prob\child.bif" />
     <None Include="data\prob\earthquake.bif" />
+    <None Include="data\prob\knowledge_clip.bif" />
+    <None Include="data\sample\child.data" />
     <None Include="data\sample\earthquake.data" />
+    <None Include="data\sample\knowledge_clip.data" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

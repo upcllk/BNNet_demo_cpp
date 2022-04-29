@@ -10,7 +10,7 @@ string BNNode::get_random_value()
 {
     string probKey = get_parents_status_key();
     //cout << "KEYS : " << probKey << endl;
-    //printVec(probability[probKey]);
+    //print_vec(probability[probKey]);
     return get_value_by_prob_table(probability[probKey]);
 }
 
@@ -39,7 +39,8 @@ string BNNode::get_parents_status_key()
 
 string BNNode::get_value_by_prob_table(const vector<double>& probTable)
 {
-    double target = static_cast<double>(rand()) / RAND_MAX;
+    double target = static_cast<double>(get_rand_num()) / INT_MAX;
+    double temp = target;
     int index = 0;
     while (index < probTable.size() && probTable[index] < target) {
         target -= probTable[index];
@@ -51,9 +52,11 @@ string BNNode::get_value_by_prob_table(const vector<double>& probTable)
             index--;
         }
         else {
+            // cout << "random value : " << temp << "\ttarget : " << target << endl;
+            // print_vec(probTable);
             exit(GET_RAND_VALUE_ERROR);
         }
     }
-    this->value = valueRange[index];
+    this->value = value_range[index];
     return this->value;
 }

@@ -5,75 +5,10 @@
 
 BNNet::BNNet(string fileName) {
     net_name = fileName;
-    if (fileName == "earthquake") {
-        // 内存泄漏不管了
-        BNNode* E = new BNNode("Earthquake");
-        BNNode* B = new BNNode("Burglary");
-        BNNode* A = new BNNode("Alarm");
-        BNNode* J = new BNNode("JohnCalls");
-        BNNode* M = new BNNode("MaryCalls");
-
-        // 这两个是对应的
-        variables = { E, B, A, J, M };
-        node_index_dic = {
-            {E->node_name, 0},
-            {B->node_name, 1},
-            {A->node_name, 2},
-            {J->node_name, 3},
-            {M->node_name, 4}
-        };
-
-        /*variables = { J, B, M, A, E };
-        node_index_dic = {
-            {J->node_name, 0},
-            {B->node_name, 1},
-            {M->node_name, 2},
-            {A->node_name, 3},
-            {E->node_name, 4}
-        };*/
-
-        E->children.insert(A);
-        B->children.insert(A);
-        A->children.insert(J);
-        A->children.insert(M);
-        A->parents.insert(E);
-        A->parents.insert(B);
-        J->parents.insert(A);
-        M->parents.insert(A);
-
-        // 地震模型为简单二值
-        E->valueRange = B->valueRange = A->valueRange = J->valueRange = M->valueRange = { "True", "False" };
-        E->value_index_dic = B->value_index_dic = A->value_index_dic = J->value_index_dic = M->value_index_dic = {
-            {"True", 0},
-            {"False", 1}
-        };
-
-        // 这概率太低了人为调高点
-        // B->probability["empty"] = {0.01, 0.99};
-        // E->probability["empty"] = {0.02, 0.98};
-        B->probability["empty"] = { 0.35, 0.65 };
-        E->probability["empty"] = { 0.2, 0.8 };
-        J->probability = {
-            {"Alarm:True", {0.9, 0.1}},
-            {"Alarm:False", {0.05, 0.95}}
-        };
-        M->probability = {
-            {"Alarm:True", {0.7, 0.3}},
-            {"Alarm:False", {0.33, 0.67}}
-        };
-        // 这边的 key 在生成的时候一定要注意有序，从 parents 中读入
-        A->probability = {
-            {"Burglary:True,Earthquake:True", {0.95, 0.05}},
-            {"Burglary:False,Earthquake:True", {0.29, 0.71}},
-            {"Burglary:True,Earthquake:False", {0.94, 0.06}},
-            {"Burglary:False,Earthquake:False", {0.15, 0.85}}
-        };
-    }
-    else {
-        cout << "BNNet netType error \n";
-        exit(NET_TYPE_ERROR);
-    }
+    string filePath = "data\\prob\\" + fileName + ".bif";
+    read_prob_from_file(filePath, this);
 }
+
 
 vector<int> BNNet::get_topo_sort_seq()
 {
@@ -95,7 +30,7 @@ vector<int> BNNet::get_topo_sort_seq()
             visited[i] = true;
             seq.push_back(i);
             for (BNNode* next : variables[i]->children) {
-                int index = node_index_dic[next->node_name];
+                int index = name_index_dic[next->node_name];
                 inDgrees[index]--;
             }
         }

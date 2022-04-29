@@ -64,5 +64,17 @@
     <None Include="data\sample\earthquake.data">
       <Filter>资源文件\data\sample</Filter>
     </None>
+    <None Include="data\prob\knowledge_clip.bif">
+      <Filter>资源文件\data\prob</Filter>
+    </None>
+    <None Include="data\sample\knowledge_clip.data">
+      <Filter>资源文件\data\sample</Filter>
+    </None>
+    <None Include="data\prob\child.bif">
+      <Filter>资源文件\data\prob</Filter>
+    </None>
+    <None Include="data\sample\child.data">
+      <Filter>资源文件\data\sample</Filter>
+    </None>
   </ItemGroup>
 </Project>

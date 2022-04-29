@@ -13,18 +13,18 @@ using namespace std;
 int main()
 {
     srand(time(nullptr));
-    string name = "earthquake";
+    /// name 为已存在 ./data/prob/ 目录下的 .bif 文件名
+    /// bif 文件该有的空格别省，，特别是逗号后面鬼知道有什么 bug
+    string name;
+    ///  注意这里的文件名根 .bif .data 还有 .bif 首行保持一致
+    name = "earthquake";
+    name = "knowledge_clip";
+    name = "child";
+
     BNNet mainNet = BNNet(name);
 
-    auto t = split(",,,abc,sdsa,dsafassd,dsafa,,,", ',');
-    printVec(t);
-    auto order = mainNet.get_topo_sort_seq();
-    printVec(order);
-    cout << "*************************\n";
-    //vector<string> sample = mainNet.get_rand_sample(10000);
-    //mainNet.save_sample_to_file(sample);
-    /// todo : rand_prob_from_file, BNNet 构造函数根据传入的 fileName 生成 filePath 调用
-    /// todo : 多值样本生成以及验证
+    vector<string> sample = mainNet.get_rand_sample(100000);
+    mainNet.save_sample_to_file(sample);
     string filePath = "data\\sample\\" + name + ".data";
     vector<vector<string>> sampleRead = read_sample_from_file(filePath);
     verify_sample_prob(sampleRead);

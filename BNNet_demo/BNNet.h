@@ -13,15 +13,22 @@ public:
         }
     */
     BNNet(string fileName);
+/// <summary>
+///  todo  
+///     BNNet(vector<BNNodes*> nodes)    // 赋值一次，因为存的也是节点指针后续节点内更改同步，搜索阶段使用
+///     void remove_edge()
+///     void add_edge()
+///     
+/// </summary>
 
+// private:
 public:
-    // private:
         // net name   e.g. "Earthquake"
     string net_name;
     // 记录有哪些节点
     vector<BNNode*> variables;
     // 根据网中的节点 name 获得在 variables 中的下标
-    unordered_map<string, int> node_index_dic;
+    unordered_map<string, int> name_index_dic;
 
 public:
     // 获得节点的拓扑排序
