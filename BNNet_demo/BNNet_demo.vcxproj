@@ -139,16 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BNNet.h" />
-    <ClInclude Include="BNNode.h" />
-    <ClInclude Include="exitCode.h" />
-    <ClInclude Include="tools.h" />
+    <ClInclude Include="netFrame\BNNet.h" />
+    <ClInclude Include="netFrame\BNNode.h" />
+    <ClInclude Include="socre\MDLScore.h" />
+    <ClInclude Include="tools\exitCode.h" />
+    <ClInclude Include="utils\tools.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BNNet.cpp" />
-    <ClCompile Include="BNNode.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="tools.cpp" />
+    <ClCompile Include="netFrame\BNNet.cpp" />
+    <ClCompile Include="netFrame\BNNode.cpp" />
+    <ClCompile Include="socre\MDLScore.cpp" />
+    <ClCompile Include="utils\tools.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\prob\child.bif" />

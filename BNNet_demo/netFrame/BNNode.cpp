@@ -1,6 +1,7 @@
-#include "BNNode.h"
-#include "tools.h"
 #include <algorithm>
+
+#include "BNNode.h"
+#include "../utils/tools.h"
 
 BNNode::BNNode(string nodeName) {
     node_name = nodeName;

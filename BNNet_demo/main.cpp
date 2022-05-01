@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "BNNet.h"
-#include "tools.h"
+#include "netFrame/BNNet.h"
+#include "utils/tools.h"
 
 using namespace std;
 
@@ -10,6 +10,9 @@ using namespace std;
     或者保留一份排好序的 variable.nameS, 然后每次遍历这个排序 names 判断是否在 parents 里面
     这样也能保证有序
 */
+
+vector<vector<string>> g_sample;
+
 int main()
 {
     srand(time(nullptr));
@@ -18,16 +21,16 @@ int main()
     string name;
     ///  注意这里的文件名根 .bif .data 还有 .bif 首行保持一致
     name = "earthquake";
-    name = "knowledge_clip";
-    name = "child";
+    //name = "knowledge_clip";
+    //name = "child";
 
     BNNet mainNet = BNNet(name);
 
-    vector<string> sample = mainNet.get_rand_sample(100000);
-    mainNet.save_sample_to_file(sample);
-    string filePath = "data\\sample\\" + name + ".data";
-    vector<vector<string>> sampleRead = read_sample_from_file(filePath);
-    verify_sample_prob(sampleRead);
+    vector<vector<string>> sample_generated;
+    sample_generated = mainNet.getRandSample(100000);
+    mainNet.saveSampleToFile(sample_generated);
+    g_sample = mainNet.readSampleFromFile();
+    mainNet.verifySampleProb(g_sample);
     return 0;
 }
 

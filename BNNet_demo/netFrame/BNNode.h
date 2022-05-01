@@ -10,7 +10,8 @@
 #include <unordered_set>
 #include <set>
 #include <map>
-#include "exitCode.h"
+
+#include "../utils/exitCode.h"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ public:
     unordered_set<BNNode*> parents;
     // vector<Node*> children;
     unordered_set<BNNode*> children;
-    /// 对应 node 取值范围, 注意多值
+    // 对应 node 取值范围, 注意多值
     // 比如 {"True", "False"}, {"<5", "5-12", ">12"}, ...
     vector<string> value_range;
     // 由value得到value_range中的下标值
@@ -34,6 +35,7 @@ public:
     // 当前节点的value值, 必包含于 value_range 
     /// 在构造函数里没有初始化, 在生成样本的时候初始化
     string value;
+
     // P(A | B = b, C = c) = probability[key]
     // key = "B:b,C:c"  // key 要 sort, 为了防止重复 sort，这要求 Node->parents 内部有序 -> set
     // A : node->  {a0, a1, a2} -> 对应 prob[key][0, 1, 2]

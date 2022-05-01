@@ -16,10 +16,10 @@ variable MaryCalls {
   type discrete [ 2 ] {True, False};
 }
 probability ( Burglary ) {
-  table    0.01, 0.99;
+  table    0.1, 0.9;
 }
 probability ( Earthquake ) {
-  table 0.02, 0.98;
+  table 0.2, 0.8;
 }
 probability ( Alarm | Burglary, Earthquake ) {
   (True, True) 0.95, 0.05;

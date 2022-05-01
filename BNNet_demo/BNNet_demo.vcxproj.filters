@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="头文件\util">
-      <UniqueIdentifier>{c016b954-b242-4c7f-977f-022d20708c8e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\netFrame">
       <UniqueIdentifier>{3d7c9c7a-4470-48fc-a775-7351b6cb2fea}</UniqueIdentifier>
     </Filter>
@@ -28,32 +25,44 @@
     <Filter Include="资源文件\data\prob">
       <UniqueIdentifier>{45e7e35c-2c4a-43a3-b507-5479742a78e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\score">
+      <UniqueIdentifier>{53e4453f-4d99-472e-a92f-045d6ee31a02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\utils">
+      <UniqueIdentifier>{c016b954-b242-4c7f-977f-022d20708c8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="tools.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="socre\MDLScore.h">
+      <Filter>头文件\score</Filter>
     </ClInclude>
-    <ClInclude Include="BNNet.h">
+    <ClInclude Include="netFrame\BNNet.h">
       <Filter>头文件\netFrame</Filter>
     </ClInclude>
-    <ClInclude Include="BNNode.h">
+    <ClInclude Include="netFrame\BNNode.h">
       <Filter>头文件\netFrame</Filter>
     </ClInclude>
-    <ClInclude Include="exitCode.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="tools\exitCode.h">
+      <Filter>头文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\tools.h">
+      <Filter>头文件\utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BNNet.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="BNNode.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="tools.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="socre\MDLScore.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="netFrame\BNNet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="netFrame\BNNode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\tools.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
